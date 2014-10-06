@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="default" template="/WEB-INF/layouts/prizylayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition> 
+    
+    <definition name="defaulthome" template="/WEB-INF/layouts/prizyhome.jsp">
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition> 
+        
+    <!-- Initiator Home-->
+    <definition name="home" extends="defaulthome">
+        <put-attribute name="title" value="PRIZY APP | HOME"/>
+        <put-attribute name="content" value="/WEB-INF/views/home.jsp" />
+    </definition>
+
+    <definition name="list" extends="default">
+        <put-attribute name="title" value="PRIZY APP | Admin"/>
+        <put-attribute name="content" value="/WEB-INF/views/list.jsp" />
+    </definition>
+
+    <definition name="add" extends="default">
+        <put-attribute name="title" value="PRIZY APP | ADD"/>
+        <put-attribute name="content" value="/WEB-INF/views/add.jsp" />
+    </definition>
+
+    <definition name="view" extends="default">
+        <put-attribute name="title" value="PRIZY APP | ADD"/>
+        <put-attribute name="content" value="/WEB-INF/views/view.jsp" />
+    </definition>
+
+    <definition name="select" extends="default">
+        <put-attribute name="title" value="PRIZY APP | Select"/>
+        <put-attribute name="content" value="/WEB-INF/views/select.jsp" />
+    </definition>
+       
+</tiles-definitions>
