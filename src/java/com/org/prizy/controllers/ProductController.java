@@ -9,11 +9,14 @@ import com.org.prizy.master.Product;
 import com.org.prizy.master.ProductDetail;
 import com.org.prizy.master.ProductList;
 import com.org.prizy.service.ProductService;
+import com.org.prizy.testing.ProductTest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static junit.framework.TestCase.assertEquals;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -42,9 +45,11 @@ public class ProductController
      * @param response
      * @return 
      */
+    @Test
     @RequestMapping("/index")
     public String takeSurvey(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
         List<Product> product = productService.findAllProducts();
+        assertEquals(true,ProductTest.testProduct(product));
         model.addAttribute("items", product);
         return "home";
     }
@@ -109,9 +114,11 @@ public class ProductController
      * @param response
      * @return 
      */
+    @Test
     @RequestMapping("/admin")
     public String listProduct(ModelMap map, HttpServletRequest request, HttpServletResponse response) {
         List<ProductList> product = productService.findProductList();
+        assertEquals(true,ProductTest.testProductList(product));
         map.addAttribute("items", product);
         return "list";
     }
@@ -137,11 +144,12 @@ public class ProductController
      * @param response
      * @return 
      */
+    @Test
     @RequestMapping("/view")
     public String view(ModelMap map, HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("productid"));
-        System.out.println("id= "+id);
         List<ProductDetail> list = productService.getProductDetail(id);
+        assertEquals(true, ProductTest.testProductDetail(list));
         map.addAttribute("data", list);
         return "view";
     }

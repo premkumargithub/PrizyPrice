@@ -214,10 +214,10 @@ public class ProductImpl  implements ProductService {
             return (sum/len);
         }
         else {
-            len = len - 4;
+            int len1 = len - 4;
             for(int i = lowest; i < len-highest; i++)
                 sum += arr.get(i);   
-                average = sum/len;
+                average = sum/len1;
                 value = Integer.parseInt(addPercentage)*average/100;
                 return (average + value);
         }
